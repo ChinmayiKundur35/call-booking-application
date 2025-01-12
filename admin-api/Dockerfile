@@ -1,10 +1,9 @@
-FROM node:17.9.0-slim
-RUN useradd adminapi
+FROM  node:17.9.0-slim
+RUN useradd adminui
 WORKDIR /app
-RUN chown adminapi /app /home
+RUN chown adminui /app /home
 COPY . .
 RUN npm install
-EXPOSE 1004
-ENV MONGO_URL=""
-USER adminapi
-CMD ["npm","start"]
+EXPOSE 3000
+USER adminui
+CMD [ "npm","start" ]
